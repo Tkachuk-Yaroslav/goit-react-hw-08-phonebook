@@ -1,8 +1,11 @@
 import { Button, TextField } from '@mui/material';
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { register } from 'redux/auth/authOperations';
 
-const Register = ({ registration }) => {
+const Register = () => {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
@@ -23,15 +26,10 @@ const Register = ({ registration }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    dispatch(register({ name, email, password }));
 
     //   const { name, email, password } = e.target.elements;
     //   console.log(name.value, email.value, password.value);
-
-    registration({
-      name,
-      email,
-      password,
-    });
   };
 
   return (
