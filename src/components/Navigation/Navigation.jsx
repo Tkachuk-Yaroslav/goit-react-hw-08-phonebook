@@ -1,6 +1,6 @@
-import UserMenu from 'components/UserMenu/UserMenu';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+// import css from './Navigation.module.css';
 
 const Navigation = () => {
   return (
@@ -8,10 +8,7 @@ const Navigation = () => {
       <nav>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/contacts">Contacts</NavLink>
-        <NavLink to="/register">Register</NavLink>
-        <NavLink to="/login">Login</NavLink>
       </nav>
-      <UserMenu />
     </>
   );
 };
