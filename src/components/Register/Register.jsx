@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { register } from 'redux/auth/authOperations';
+import css from './Register.module.css';
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -33,13 +34,14 @@ const Register = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={css.form}>
       <TextField
         label="Name"
         variant="outlined"
         name="name"
         onChange={handleChange}
         value={name}
+        className={css.name}
       />
       <TextField
         label="Email"
@@ -47,6 +49,7 @@ const Register = () => {
         name="email"
         onChange={handleChange}
         value={email}
+        className={css.email}
       />
       <TextField
         label="Password"
@@ -55,8 +58,9 @@ const Register = () => {
         name="password"
         onChange={handleChange}
         value={password}
+        className={css.password}
       />
-      <Button variant="contained" type="submit">
+      <Button variant="contained" type="submit" className={css.register}>
         Register
       </Button>
       <h5>

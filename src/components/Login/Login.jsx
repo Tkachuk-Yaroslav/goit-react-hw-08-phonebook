@@ -1,6 +1,6 @@
 import { Button } from '@mui/material';
 import TextField from '@mui/material/TextField';
-
+import css from './Login.module.css';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
@@ -32,13 +32,14 @@ const Login = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={css.form}>
       <TextField
         label="Email"
         variant="outlined"
         name="email"
         onChange={handleChange}
         value={email}
+        className={css.email}
       />
       <TextField
         label="Password"
@@ -47,8 +48,9 @@ const Login = () => {
         name="password"
         onChange={handleChange}
         value={password}
+        className={css.password}
       />
-      <Button variant="contained" type="submit">
+      <Button variant="contained" type="submit" className={css.login}>
         Log In
       </Button>
       <h5>
