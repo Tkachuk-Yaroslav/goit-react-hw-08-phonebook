@@ -44,6 +44,26 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   }
 });
 
+export const refreshUser = createAsyncThunk(
+  'auth/refresh',
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    console.log(state);
+
+    const persistedToken = state.auth.token;
+    if (!persistedToken)
+      return thunkAPI.rejectWithValue("Sorry, we can't do refresh");
+    setToken(persistedToken);
+
+    try {
+      const resp = await axios.get('/users/current');
+      return resp.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 // export const signUp = async body => {
 //   const response = await axios.post('/users/signup', body);
 //   console.log(response.data);
