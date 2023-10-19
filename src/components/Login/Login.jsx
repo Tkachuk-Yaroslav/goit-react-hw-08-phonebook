@@ -2,9 +2,13 @@ import { Button } from '@mui/material';
 import TextField from '@mui/material/TextField';
 
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { logIn } from 'redux/auth/authOperations';
 
 const Login = () => {
+  const dispatch = useDispatch();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -22,7 +26,7 @@ const Login = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-
+    dispatch(logIn({ email, password }));
     setEmail('');
     setPassword('');
   };
