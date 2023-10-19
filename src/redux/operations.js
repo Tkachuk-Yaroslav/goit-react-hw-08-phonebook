@@ -1,4 +1,4 @@
-import { addOneContact, deleteOneContact, getAllContacts } from 'api/mock-api';
+import { addOneContact, deleteOneContact, getAllContacts } from 'api/contacts';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 // export const fetchContacts = () => async dispatch => {
 //   try {
