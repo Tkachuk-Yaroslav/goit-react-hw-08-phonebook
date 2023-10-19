@@ -10,6 +10,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 //   }
 // };
 
+///////////////////////////////////////////////////
 //fetchContacts - одержання масиву контактів (метод GET) запитом. Базовий тип екшену "contacts/fetchAll".
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
