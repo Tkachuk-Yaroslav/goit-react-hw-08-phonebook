@@ -1,3 +1,4 @@
+import { Box, Button } from '@mui/material';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from 'redux/auth/authOperations';
@@ -7,17 +8,19 @@ const UserMenu = () => {
   const dispatch = useDispatch();
   const username = useSelector(getUsername);
   return (
-    <div>
+    <Box sx={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
       <p>Welcome, {username}!</p>
-      <button
+      <Button
+        sx={{ height: '30px' }}
+        variant="contained"
         onClick={() => {
           dispatch(logOut());
           console.log('dispatch', dispatch);
         }}
       >
-        Logout
-      </button>
-    </div>
+        Log Out
+      </Button>
+    </Box>
   );
 };
 

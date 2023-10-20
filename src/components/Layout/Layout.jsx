@@ -5,45 +5,94 @@ import UserMenu from 'components/UserMenu/UserMenu';
 import AuthNav from 'components/AuthNav/AuthNav';
 import { useSelector } from 'react-redux';
 import { getIsLoggedIn } from 'redux/auth/authSelectors';
+import { Box, Container, Link } from '@mui/material';
 // import { AppBar } from '@mui/material';
 
 const Layout = () => {
   const isLoggedIn = useSelector(getIsLoggedIn);
   return (
     <>
-      <header>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            //     flexDirection: 'column',
-            alignItems: 'center',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            width: '600px',
-            //     backgroundColor: '#58c800',
-            //     borderRadius: '20px',
-            //     padding: '40px 20px',
-            //     outline: 'auto #280a0a00',
-            //     outlineOffset: '-20px',
+      <Container maxWidth="md">
+        {/* sx={{ bgcolor: 'rgb(70, 157, 4)' }} */}
+        <Box
+          sx={{
+            bgcolor: 'rgb(88, 200, 0)',
+            // width: '600px',
+            ml: 'auto',
+            mr: 'auto',
+            padding: '0 20px',
+            borderRadius: '20px',
           }}
         >
-          <Navigation />
-          {!isLoggedIn ? <AuthNav /> : <UserMenu />}
-        </div>
-      </header>
-      {/* <AppBar> */}
-      {/* display: flex; position: relative; width: 640px; margin-left: auto;
-      margin-right: auto; flex-direction: row; justify-content: space-between;
-      align-items: center; padding: 0px 40px; */}
-      {/* <Navigation /> */}
-      {/* {!isLoggedIn ? <AuthNav /> : <UserMenu />} */}
-      {/* </AppBar> */}
-      <main>
-        <Suspense fallback="Loading...">
-          <Outlet />
-        </Suspense>
-      </main>
+          <header>
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                height: '60px',
+              }}
+              // style={{
+              // display: 'flex',
+              // justifyContent: 'space-between',
+              // alignItems: 'center',
+              // marginLeft: 'auto',
+              // marginRight: 'auto',
+              // width: '600px',
+
+              //     flexDirection: 'column',
+              //     backgroundColor: '#58c800',
+              //     borderRadius: '20px',
+              //     padding: '40px 20px',
+              //     outline: 'auto #280a0a00',
+              //     outlineOffset: '-20px',
+              // }}
+            >
+              <Navigation />
+              {!isLoggedIn ? <AuthNav /> : <UserMenu />}
+            </Box>
+          </header>
+
+          <main>
+            <Box
+              sx={{
+                bgcolor: 'rgb(88, 200, 0)',
+                // width: '600px',
+                ml: 'auto',
+                mr: 'auto',
+                padding: '0 20px',
+                borderRadius: '20px',
+              }}
+            >
+              <Suspense fallback="Loading...">
+                <Outlet />
+              </Suspense>
+            </Box>
+          </main>
+
+          <footer>
+            <Box
+              sx={{
+                // bgcolor: 'rgb(88, 200, 0)',
+                // width: '600px',
+                width: '300px',
+                ml: 'auto',
+                mr: 'auto',
+                pb: '20px',
+                // padding: '0 20px',
+                // borderRadius: '20px',
+              }}
+            >
+              <p>
+                This work was made by{' '}
+                <Link href="https://github.com/Tkachuk-Yaroslav">
+                  Yaroslav Tkachuk
+                </Link>
+              </p>
+            </Box>
+          </footer>
+        </Box>
+      </Container>
     </>
   );
 };

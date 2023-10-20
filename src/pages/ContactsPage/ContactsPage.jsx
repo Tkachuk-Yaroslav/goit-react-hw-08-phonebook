@@ -17,12 +17,12 @@ const ContactsPage = () => {
         alignItems: 'center',
         marginLeft: 'auto',
         marginRight: 'auto',
-        width: '600px',
-        marginTop: '50px',
+        width: '560px',
+        // marginTop: '50px',
         backgroundColor: '#58c800',
         borderRadius: '20px',
         padding: '40px 20px',
-        outline: 'auto #280a0a00',
+        outline: '3px solid rgb(25 118 210)',
         outlineOffset: '-20px',
       }}
     >
