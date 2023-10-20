@@ -5,6 +5,7 @@ import UserMenu from 'components/UserMenu/UserMenu';
 import AuthNav from 'components/AuthNav/AuthNav';
 import { useSelector } from 'react-redux';
 import { getIsLoggedIn } from 'redux/auth/authSelectors';
+// import { AppBar } from '@mui/material';
 
 const Layout = () => {
   const isLoggedIn = useSelector(getIsLoggedIn);
@@ -31,6 +32,13 @@ const Layout = () => {
           {!isLoggedIn ? <AuthNav /> : <UserMenu />}
         </div>
       </header>
+      {/* <AppBar> */}
+      {/* display: flex; position: relative; width: 640px; margin-left: auto;
+      margin-right: auto; flex-direction: row; justify-content: space-between;
+      align-items: center; padding: 0px 40px; */}
+      {/* <Navigation /> */}
+      {/* {!isLoggedIn ? <AuthNav /> : <UserMenu />} */}
+      {/* </AppBar> */}
       <main>
         <Suspense fallback="Loading...">
           <Outlet />

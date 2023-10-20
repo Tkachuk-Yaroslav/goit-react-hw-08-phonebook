@@ -9,10 +9,23 @@ import { lazy, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { refreshUser } from 'redux/auth/authOperations';
 
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
 const ContactsPage = lazy(() => import('../pages/ContactsPage/ContactsPage'));
+
+const darkTheme = createTheme({
+  palette: {
+    primary: {
+      main: '#43a047',
+    },
+    secondary: {
+      main: '#aed581',
+    },
+  },
+});
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -21,14 +34,16 @@ export const App = () => {
     dispatch(refreshUser());
   }, [dispatch]);
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<HomePage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/contacts" element={<ContactsPage />} />
-      </Route>
-    </Routes>
+    <ThemeProvider theme={darkTheme}>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/contacts" element={<ContactsPage />} />
+        </Route>
+      </Routes>
+    </ThemeProvider>
   );
 };
 
