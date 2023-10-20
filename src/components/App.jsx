@@ -6,12 +6,13 @@
 import { Route, Routes } from 'react-router-dom';
 import Layout from './Layout/Layout';
 import { lazy, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { refreshUser } from 'redux/auth/authOperations';
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import RestrictedRoute from './RestrictedRoute';
 import PrivateRoute from './PrivateRoute';
+import { getIsRefreshing } from 'redux/auth/authSelectors';
 
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
@@ -30,12 +31,15 @@ const darkTheme = createTheme({
 });
 
 export const App = () => {
+  const isRefreshing = useSelector(getIsRefreshing);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
-  return (
+  return isRefreshing ? (
+    <b>Refreshing user...</b>
+  ) : (
     <ThemeProvider theme={darkTheme}>
       <Routes>
         <Route path="/" element={<Layout />}>
