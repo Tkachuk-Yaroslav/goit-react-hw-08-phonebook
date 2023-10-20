@@ -9,7 +9,6 @@ import { lazy, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { refreshUser } from 'redux/auth/authOperations';
 
-import { ThemeProvider, createTheme } from '@mui/material/styles';
 import RestrictedRoute from './RestrictedRoute';
 import PrivateRoute from './PrivateRoute';
 import { getIsRefreshing } from 'redux/auth/authSelectors';
@@ -18,17 +17,6 @@ const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
 const ContactsPage = lazy(() => import('../pages/ContactsPage/ContactsPage'));
-
-const darkTheme = createTheme({
-  palette: {
-    primary: {
-      main: '#43a047',
-    },
-    secondary: {
-      main: '#aed581',
-    },
-  },
-});
 
 export const App = () => {
   const isRefreshing = useSelector(getIsRefreshing);
@@ -40,7 +28,6 @@ export const App = () => {
   return isRefreshing ? (
     <b>Refreshing user...</b>
   ) : (
-    // <ThemeProvider theme={darkTheme}>
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
@@ -67,7 +54,6 @@ export const App = () => {
         />
       </Route>
     </Routes>
-    // </ThemeProvider>
   );
 };
 
