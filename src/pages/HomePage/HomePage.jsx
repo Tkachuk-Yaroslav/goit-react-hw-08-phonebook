@@ -6,7 +6,7 @@ const HomePage = () => {
   return (
     <Box
       sx={{
-        width: '550px',
+        // width: '550px',
         textAlign: 'center',
       }}
     >
