@@ -76,6 +76,7 @@ const PhonebookForm = () => {
           id={nameLabelId}
         />
       </label>
+
       <label htmlFor={numberLabelId} className={css.telLabel}>
         Number
         <input

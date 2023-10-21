@@ -57,7 +57,6 @@ const Layout = () => {
             <Box
               sx={{
                 bgcolor: 'rgb(88, 200, 0)',
-                // width: '600px',
                 ml: 'auto',
                 mr: 'auto',
                 padding: '0 20px',
