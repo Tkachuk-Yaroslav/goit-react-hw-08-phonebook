@@ -12,6 +12,7 @@ import { refreshUser } from 'redux/auth/authOperations';
 import RestrictedRoute from './RestrictedRoute';
 import PrivateRoute from './PrivateRoute';
 import { getIsRefreshing } from 'redux/auth/authSelectors';
+import { Box } from '@mui/material';
 
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
@@ -26,7 +27,9 @@ export const App = () => {
     dispatch(refreshUser());
   }, [dispatch]);
   return isRefreshing ? (
-    <b>Refreshing user...</b>
+    <Box sx={{ mr: 'auto', ml: 'auto', width: '150px' }}>
+      <b>Refreshing user...</b>
+    </Box>
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
