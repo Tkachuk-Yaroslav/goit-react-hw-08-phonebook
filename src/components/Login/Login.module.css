@@ -17,5 +17,11 @@
 
 .email,
 .password {
-  margin-bottom: 8px;
+  margin-bottom: 24px;
+}
+
+.wrapper {
+  height: 513px;
+  display: flex;
+  align-items: center;
 }

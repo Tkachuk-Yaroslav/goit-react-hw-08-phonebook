@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import css from './PhonebookForm.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { Notify } from 'notiflix';
+import toast from 'react-hot-toast';
 import { nanoid } from '@reduxjs/toolkit';
 import { addContact, fetchContacts } from 'redux/operations';
 import { selectContacts } from 'redux/selectors';
@@ -46,10 +46,11 @@ const PhonebookForm = () => {
     const isExistNumber = contacts.some(el => el.number === number);
     console.log('isExistNumber', isExistNumber);
     if (isExistName || isExistNumber) {
-      Notify.failure(`${name} is already in contacts`);
+      // Notify.failure(`${name} is already in contacts`);
+      toast.error(`${name} is already in contacts`);
     } else {
       dispatch(addContact(newContact));
-      Notify.success(`Contact ${name} successfully created!`);
+      toast.success(`Contact ${name} successfully created!`);
     }
 
     reset();

@@ -74,20 +74,21 @@ const Layout = () => {
               sx={{
                 // bgcolor: 'rgb(88, 200, 0)',
                 // width: '600px',
-                width: '300px',
+                width: '500px',
                 ml: 'auto',
                 mr: 'auto',
                 pb: '20px',
+                pt: '10px',
                 // padding: '0 20px',
                 // borderRadius: '20px',
               }}
             >
-              <p>
+              <h2>
                 This work was made by{' '}
                 <Link href="https://github.com/Tkachuk-Yaroslav">
                   Yaroslav Tkachuk
                 </Link>
-              </p>
+              </h2>
             </Box>
           </footer>
         </Box>

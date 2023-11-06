@@ -3,6 +3,7 @@
 // import Filter from './Filter/Filter';
 // import { useSelector } from 'react-redux';
 // import { selectContactsArray } from 'redux/selectors';
+import { CirclesWithBar } from 'react-loader-spinner';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './Layout/Layout';
 import { lazy, useEffect } from 'react';
@@ -13,6 +14,7 @@ import RestrictedRoute from './RestrictedRoute';
 import PrivateRoute from './PrivateRoute';
 import { getIsRefreshing } from 'redux/auth/authSelectors';
 import { Box } from '@mui/material';
+import { Toaster } from 'react-hot-toast';
 
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
@@ -28,35 +30,53 @@ export const App = () => {
   }, [dispatch]);
   return isRefreshing ? (
     <Box sx={{ mr: 'auto', ml: 'auto', width: '150px' }}>
-      <b>Refreshing user...</b>
+      {/* <b>Refreshing user...</b> */}
+      <CirclesWithBar
+        height="100"
+        width="100"
+        color="#4fa94d"
+        wrapperStyle={{}}
+        wrapperClass=""
+        visible={true}
+        outerCircleColor=""
+        innerCircleColor=""
+        barColor=""
+        ariaLabel="circles-with-bar-loading"
+      />
     </Box>
   ) : (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<HomePage />} />
-        <Route
-          path="/register"
-          element={
-            <RestrictedRoute
-              component={<RegisterPage />}
-              redirectTo="/contacts"
-            />
-          }
-        />
-        <Route
-          path="/login"
-          element={
-            <RestrictedRoute component={<LoginPage />} redirectTo="/contacts" />
-          }
-        />
-        <Route
-          path="/contacts"
-          element={
-            <PrivateRoute component={<ContactsPage />} redirectTo="/login" />
-          }
-        />
-      </Route>
-    </Routes>
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route
+            path="/register"
+            element={
+              <RestrictedRoute
+                component={<RegisterPage />}
+                redirectTo="/contacts"
+              />
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <RestrictedRoute
+                component={<LoginPage />}
+                redirectTo="/contacts"
+              />
+            }
+          />
+          <Route
+            path="/contacts"
+            element={
+              <PrivateRoute component={<ContactsPage />} redirectTo="/login" />
+            }
+          />
+        </Route>
+      </Routes>
+      <Toaster />
+    </>
   );
 };
 

@@ -8,21 +8,24 @@ const HomePage = () => {
       sx={{
         // width: '550px',
         textAlign: 'center',
+        height: '491px',
       }}
     >
-      Welcome to Phonebook App
-      <br /> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto
-      tempora voluptate, qui quia corporis, cum modi inventore facilis ab sequi
-      dolores? Facere tempora commodi iure veritatis sequi rerum. Incidunt quam
-      reiciendis magnam laudantium officiis temporibus amet. Qui, at distinctio
-      nihil itaque temporibus nemo hic, eos quo reprehenderit possimus eius
-      excepturi. Aliquid, enim. Quis nihil molestias, quia velit eligendi
-      doloribus numquam maiores quod cupiditate tempora aperiam quibusdam dicta
-      illo veniam delectus! Est odio iure explicabo et ut delectus perspiciatis,
-      culpa iusto enim ullam ab, sequi quod amet veniam modi. Consequuntur
-      recusandae similique voluptatem totam odit accusamus eum fugit ipsa quia
-      molestias?
-      <br />
+      <h1>Welcome to Phonebook App</h1>
+      <img
+        height={'300'}
+        src="https://play-lh.googleusercontent.com/7O6Mvzvsy_gxPY7IPHN5iJWo9CB9CEeUvs8Ha1m1v0fctHD-tLwBR6TycZ45V-5aGkE"
+        alt="Phonebook App"
+      />
+      <p>
+        While developing this phone book, I used the following technology stack:
+        React (Hooks, Routers, Redux, Redux Toolkit, Redux-Persist,
+        React-Hot-Toast, React-Loader-Spinner), JavaScript, Material Ui. This
+        application is connected to the Swagger backend API. You have the option
+        to create a user account, log in, add new contacts, delete existing
+        contacts, apply filters to your contact list, and log out when you're
+        done.
+      </p>
       <StyledNavLink to={'/login'}>Start</StyledNavLink>
     </Box>
   );

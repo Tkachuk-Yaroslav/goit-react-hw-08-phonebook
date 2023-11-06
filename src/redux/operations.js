@@ -1,5 +1,6 @@
 import { addOneContact, deleteOneContact, getAllContacts } from 'api/contacts';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import toast from 'react-hot-toast';
 // export const fetchContacts = () => async dispatch => {
 //   try {
 //     dispatch(fetchingInProgress());
@@ -43,6 +44,8 @@ export const deleteContact = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const response = await deleteOneContact(id);
+      // console.log(response, '>>>>>>');
+      toast.success(`${response.name} successfully deleted!`);
       return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
